@@ -1,0 +1,5 @@
+name: openai_35_chat
+params:
+  temperature: 0.0
+  engine: gpt-35-turbo-16k
+  async_calls: false

@@ -1,0 +1,9 @@
+template: "You will be provided with two statements.
+
+Your goal is to understand if they are semantically similar or semantically dissimilar (syntactically may look similar but are semantically dissimilar).
+
+Please respond with 'Yes' if they are similar, and 'No' if they are dissimilar.
+
+Statement 1: {statement_1}
+Statement 2: {statement_2}
+Your answer:"

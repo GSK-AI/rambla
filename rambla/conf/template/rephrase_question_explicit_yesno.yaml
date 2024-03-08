@@ -1,0 +1,5 @@
+template: "You will be provided with a question. 
+            You should rephrase in a way such that meaning remains identical. 
+            The rephrased question should be answerable with either a 'yes' or a 'no'.
+            Question: {question} .
+            Rephrased question:"

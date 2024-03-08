@@ -1,0 +1,23 @@
+defaults:
+  - ../model@params.llm_config: openai_chat
+  - ../template@params.prompt_formatter_config: descriptive_text_to_text
+  - _self_
+
+# Add these here so under params
+params:
+  prompt_formatter_config:
+    var_map:
+      response: statement_1
+      question: statement_2
+    index_field: ${index_field}
+  response_component_config:
+    cache_base_dir: ${save_dir}/eval_suite_cache_dir 
+    response_cache_fname: response.json
+    max_rate: 4
+    run_async: false
+    time_period: 60
+    backoff_decorator_config: "DEFAULT"
+  response_field_name: "evaluation_response"
+
+# Add name separately
+name: llm_component

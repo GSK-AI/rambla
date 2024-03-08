@@ -1,0 +1,12 @@
+name: flat_pubmed_qa
+params:
+  path: pubmed_qa
+  subset: pqa_labeled
+  split: train
+index_field: pmid
+question_field: question
+target_field: final_decision
+categories_to_keep:
+  - "yes"
+  - "no"
+  - "maybe"

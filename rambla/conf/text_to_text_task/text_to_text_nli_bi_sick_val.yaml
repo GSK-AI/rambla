@@ -1,0 +1,15 @@
+defaults:
+  - ../dataset@dataset_config: sick_val
+  - ../evaluator@evaluator_config: nli_mcqa_evaluator
+  - _self_
+
+class_key: TextToText
+
+# Override any defaults here
+evaluator_config:
+  params: 
+    response_field: ${response_field_name}
+    metric_names: [BucketHeadP65/confusion_matrix, "f1", "recall", "precision"]
+    metric_kwargs:
+      BucketHeadP65/confusion_matrix:
+        labels: [0, 1]

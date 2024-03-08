@@ -1,0 +1,4 @@
+name: average
+params:
+  positive_key: entailment
+  apply_softmax: true

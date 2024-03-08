@@ -1,0 +1,5 @@
+name: openai_embeddings
+params:
+  engine: "text-embedding-ada-002"
+  async_calls: false
+  api_type: "azure"

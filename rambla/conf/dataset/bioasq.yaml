@@ -1,0 +1,9 @@
+name: bioasq
+params:
+  split: train
+  subset: 1000
+index_field: id
+question_field: question
+context_field: context
+answer_field: answer
+target_field: label

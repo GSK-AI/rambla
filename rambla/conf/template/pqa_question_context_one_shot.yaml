@@ -1,0 +1,20 @@
+template: >
+  You are an expert of the biomedical literature.
+
+  You will be provided with a paper's summary and a question. Your task is to answer "yes" or "no", using only the provided summary.
+
+  Example:
+
+  Question: Is cD30 expression a novel prognostic indicator in extranodal natural killer/T-cell lymphoma , nasal type?
+
+  Summary: Our results showed that expression of CD30 was not related to response to treatment but was an independent prognostic factor for both OS and PFS in ENKTL, nasal type, which suggests a role for CD30 in the pathogenesis of this disease and may support the incorporation of anti-CD30-targeted therapy into the treatment paradigm for ENKTL.
+
+  Answer: yes
+
+
+  Please answer the following question using the provided summary:
+
+  Question: {question}
+  Summary: {summary}
+
+  Your Answer:

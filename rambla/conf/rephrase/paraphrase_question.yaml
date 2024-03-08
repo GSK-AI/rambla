@@ -1,0 +1,18 @@
+defaults:
+  - ../model@llm_config: openai_chat
+  - ../template@prompt_formatter_config: rephrase_question_explicit_yesno
+
+field_rephrased: question
+
+prompt_formatter_config:
+  var_map:
+    question: question
+  index_field: ${index_field}
+
+response_component_config:
+  cache_base_dir: ${save_dir}/eval_suite_cache_dir 
+  response_cache_fname: response.json
+  max_rate: 4
+  run_async: false
+  time_period: 60
+  backoff_decorator_config: "DEFAULT"

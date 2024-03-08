@@ -1,0 +1,7 @@
+intro_template: "You are an expert of the biomedical literature.
+You will be provided with example questions with context and answers.
+Please answer the final question with 'yes' or 'no'.\n\n"
+
+examples_template: "Question: {question}\nContext: {context}\nAnswer: {answer}\n\n"
+
+final_question_template: "Question: {question}\nContext: {context}\nAnswer:"

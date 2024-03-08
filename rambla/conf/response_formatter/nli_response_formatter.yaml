@@ -1,0 +1,7 @@
+response_field_name: response
+renaming_map:
+  "entailment": "0"
+  "neutral": "1"
+  "contradiction": "2"
+string_formatter_name: basic
+null_category: "null"

@@ -1,0 +1,8 @@
+template: "Please answer the following question using just the context provided.
+  Please answer the question with 'Yes', 'No' or 'Unknown'.\n
+
+  If the context is not relevant to the question answer with 'Unknown'.\n
+
+  Context: {context}\n
+  Question: {question}\n
+  Answer:"

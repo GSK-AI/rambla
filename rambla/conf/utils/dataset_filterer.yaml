@@ -1,0 +1,4 @@
+filtering_conditions:
+  field_name: response
+  field_values: ["-1"]
+  filter_out: true

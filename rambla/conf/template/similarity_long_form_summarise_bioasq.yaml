@@ -1,0 +1,4 @@
+template: "You will be provided with an answer.\n
+From that answer your goal is to provide a 1 sentence question, where by the answer provided would be an appropriate answer for the question.\n
+Answer: {answer}\n
+Your question:"

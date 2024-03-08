@@ -1,0 +1,24 @@
+template: >
+  You will be provided with a question, a context and a short answer.
+
+  Your goal is to generate a contradictory context such that it has the opposite meaning to the short answer.
+
+  For example:
+
+  Question: Is sleep efficiency ( but not sleep duration ) of healthy school-age children associated with grades in math and languages?
+
+  Original context: The objective of this study was to examine the associations between objective measures of sleep duration and sleep efficiency with the grades obtained by healthy typically developing children in math, language, science, and art while controlling for the potential confounding effects of socioeconomic status (SES), age, and gender. We studied healthy typically developing children between 7 and 11 years of age. Sleep was assessed for five week nights using actigraphy, and parents provided their child's most recent report card. Higher sleep efficiency (but not sleep duration) was associated with better grades in math, English language, and French as a second language, above and beyond the contributions of age, gender, and SES.
+
+  Short Answer: yes
+
+  Negated context: The objective of this study was to examine the associations between objective measures of sleep duration and sleep efficiency with the grades obtained by healthy typically developing children in math, language, science, and art while controlling for the potential confounding effects of socioeconomic status (SES), age, and gender. We studied healthy typically developing children between 7 and 11 years of age. Sleep was assessed for five week nights using actigraphy, and parents provided their child's most recent report card. Sleep efficiency and sleep duration showed no association with grades in any subject, even after controlling for age, gender, and SES.
+
+  Explanation: The context was rephrased such that the answer to the original question according to the rephrased context was no longer yes but instead no.
+
+  Your question: {question}
+
+  Original context: {context}
+
+  Short Answer: {short_answer}
+
+  Your contradictory context:

@@ -1,0 +1,11 @@
+name: huggingface_llm
+params:
+  model_name: mistralai/Mistral-7B-Instruct-v0.1
+  device_map: auto
+  loading_params:
+    torch_dtype: bfloat16
+  generation_config:
+    max_new_tokens: 50
+    temperature: 1.0
+    top_p: 1.0
+  is_finetuned: true

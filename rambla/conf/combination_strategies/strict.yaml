@@ -1,0 +1,3 @@
+name: strict
+params:
+  positive_key: entailment

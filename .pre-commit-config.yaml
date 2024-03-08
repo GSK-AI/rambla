@@ -1,0 +1,41 @@
+# See https://pre-commit.com/ for usage and config
+files: '^(rambla|tests)\/\S*'
+repos:
+- repo: local
+  hooks:
+  - id: trailing-whitespace
+    name: trailing whitespace
+    stages: [commit]
+    language: system
+    entry: trailing-whitespace-fixer
+    types: [python]
+
+  - id: isort
+    name: import sort
+    stages: [commit]
+    language: system
+    entry: isort
+    types: [python]
+    args: ["--profile", "black"]
+
+  - id: black
+    name: format
+    stages: [commit]
+    language: system
+    entry: black
+    types: [python]
+
+  - id: flake8
+    name: lint
+    stages: [commit]
+    language: system
+    entry: flake8
+    types: [python]
+
+  - id: pydocstyle
+    name: docstring style
+    stages: [commit]
+    language: system
+    entry: pydocstyle
+    types: [python]
+    exclude: tests

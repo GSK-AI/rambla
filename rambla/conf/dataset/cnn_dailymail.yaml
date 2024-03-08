@@ -1,0 +1,6 @@
+name: cnn_dailymail
+index_field: "id"
+params:
+  path: cnn_dailymail
+  subset: "3.0.0"
+  split: validation

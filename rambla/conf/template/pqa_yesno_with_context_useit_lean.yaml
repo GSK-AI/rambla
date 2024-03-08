@@ -1,0 +1,6 @@
+template: "Please answer the following question using the context provided.
+  Please answer the question with Yes or No.
+
+  Context: {context}\n
+  Question: {question}\n
+  Answer:"

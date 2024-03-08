@@ -1,0 +1,6 @@
+template: "You will be provided with a context and question.\n
+If the context is relevant to the question then use it.\n
+Your goal is to answer the question in one sentence.\n
+Context: {context}\n
+Question: {question}\n
+Your answer:"

@@ -1,0 +1,5 @@
+name: bigbio_biosses
+params:
+  path: "bigbio/biosses"
+  subset: biosses_bigbio_pairs
+  split: train

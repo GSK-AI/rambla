@@ -1,0 +1,4 @@
+name: openai_completion
+params:
+  temperature: 0.0
+  engine: text-davinci-003

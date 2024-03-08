@@ -1,0 +1,6 @@
+name: xooca_complex_simple_questions
+params:
+  path: "xooca/complex_simple_questions"
+  split: train
+index_field: id
+target_field: label

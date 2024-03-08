@@ -1,0 +1,16 @@
+defaults:
+  - ../model@params.llm_config: openai_chat
+  - ../template@params.prompt_formatter_config: descriptive_text_to_text
+  - _self_
+
+# Add these here so under params
+params:
+  prompt_formatter_config:
+    var_map:
+      text_1: statement_1
+      text_2: statement_2
+    index_field: ${index_field}
+
+# Add name separately
+name: llm_component
+

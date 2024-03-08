@@ -1,0 +1,9 @@
+name: case
+mutation_operator_configs:
+  - name: switch_case
+    params:
+      case_mode: upper
+      seed: 123
+case_mode: upper
+single_mutation_per_word: true
+seed: 123

@@ -1,0 +1,36 @@
+defaults:
+  - task: paraphrase
+  - model: openai_chat
+  -  _self_
+
+save_dir: rambla_store
+
+# Sets cache directory here to keep consistent across tasks
+metrics_save_dir: ${save_dir}/metrics
+
+# Needed for fewshot_examples_{with,without}_context
+examples_column_name: example_list
+# Note that target_field and index_field below are now defined 
+# for GenericDatasets in the config 
+target_field: ${task.dataset_config.target_field} #final_decision #label
+index_field: ${task.dataset_config.index_field} #pmid #id
+
+
+task:
+  response_component_config:
+    cache_base_dir: ${save_dir}/eval_suite_cache_dir 
+    response_cache_fname: response.json
+    max_rate: 4
+    run_async: false
+    time_period: 60
+    backoff_decorator_config: "DEFAULT"
+    skip_decorator_config:
+      exception:
+        - "openai.BadRequestError"
+        - "MaximumContextLengthExceededError"
+      null_response: -1
+
+# Hydra runtime parameters
+hydra:
+  run:
+    dir: ${save_dir}/hydra_logs

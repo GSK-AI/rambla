@@ -1,0 +1,4 @@
+name: relaxed
+params:
+  primary_key: entailment
+  secondary_key: neutral

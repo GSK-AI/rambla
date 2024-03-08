@@ -1,0 +1,17 @@
+defaults:
+  - ../model@params.embeddings_model_config: openai_embeddings
+  - _self_
+
+# Add these here so under params
+params:
+  similarity_module_config:
+    name: numpy_inner_product
+
+  response_field_name: ${..response_field_name}
+
+  text_field_1: text_1
+  text_field_2: text_2
+
+# Add name separately
+name: embeddings_component
+

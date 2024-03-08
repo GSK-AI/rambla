@@ -1,0 +1,9 @@
+name: character_level
+mutation_operator_configs:
+  - name: swap_character
+    params:
+      match_character_type: true
+      seed: 123
+match_character_type: true
+single_mutation_per_word: true
+seed: 123

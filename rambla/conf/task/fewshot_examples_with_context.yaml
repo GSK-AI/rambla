@@ -1,0 +1,42 @@
+defaults:
+  - ../dataset@dataset_config: balanced_pubmed_qa_yesno
+  - ../template@prompt_formatter_config: pqa_yesno_with_examples
+  - ../response_formatter@response_formatter_config: mcqa_response_formatter
+  - _self_
+
+class_key: FewShotExamplesTask
+
+examples_module_config:
+  # These will be overwritten by the parent task if it is used.
+  # If using child task directly, use this to configure the fewshot examples.
+  seed: 24
+  order: ["yes", "yes", "yes", "no"]
+  index_field:  ${index_field}
+  examples_column_name:  ${examples_column_name}
+
+prompt_formatter_config:
+  var_map:
+    question: question
+    context: context
+    final_decision: answer
+  index_field: ${index_field}
+  target_field: ${target_field}
+  examples_column_name:  ${examples_column_name}
+
+# Override any defaults here
+response_formatter_config:
+  categories:
+    - "yes"
+    - "no"
+  null_category: "null"
+
+evaluator_config:
+  target_field: ${target_field}
+  categories: ["yes", "no", "null"]
+  metric_names: [BucketHeadP65/confusion_matrix, "f1", "recall", "precision"]
+  compute_class_counts_from_confmat: true
+  classes_to_exclude: "null"    
+  metric_kwargs:
+    BucketHeadP65/confusion_matrix:
+      labels: [0, 1, 2]
+

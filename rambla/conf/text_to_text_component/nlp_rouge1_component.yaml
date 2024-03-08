@@ -1,0 +1,12 @@
+# Add these here so under params
+params:
+  metric_name: rouge
+  metric_kwargs:
+    rouge_types: ["rouge1"]
+    use_aggregator: False
+  predictions_field: text_1
+  references_field: text_2
+  column_name: response
+
+# Add name separately
+name: nlp_rouge1_component

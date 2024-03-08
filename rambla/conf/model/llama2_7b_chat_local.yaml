@@ -1,0 +1,11 @@
+name: huggingface_llm
+params:
+  model_name: /path/to/model
+  loading_params:
+    torch_dtype: bfloat16
+  generation_config:
+    max_new_tokens: 200
+    do_sample: false
+    top_p: 1.0
+  is_finetuned: true
+  device_map: auto

@@ -1,0 +1,8 @@
+defaults:
+  - ../dataset@source_dataset_config: cnn_dailymail
+  - _self_
+
+source_field_name: article
+dest_field_name: context
+seed: 1234
+  

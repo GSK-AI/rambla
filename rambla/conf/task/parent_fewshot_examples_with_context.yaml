@@ -1,0 +1,15 @@
+defaults:
+  - ../task@child_task_config: fewshot_examples_with_context
+  - _self_
+
+class_key: ParentFewShotExamplesTask
+
+seed: 1234
+
+orders:
+ - ["yes", "yes"]
+ - ["no", "no"]
+ - ["yes", "no"]
+ - ["no", "yes"]
+
+dataset_config: ${task.child_task_config.dataset_config}

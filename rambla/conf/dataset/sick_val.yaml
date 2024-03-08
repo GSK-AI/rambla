@@ -1,0 +1,4 @@
+name: sick
+params:
+  path: "sick"
+  split: validation

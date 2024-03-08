@@ -1,0 +1,19 @@
+defaults:
+  - ../dataset@dataset_config: glue_mrpc
+  - ../evaluator@evaluator_config: nli_mcqa_evaluator
+  - _self_
+
+class_key: TextToText
+
+# General params
+##index_field: id
+##response_cache_fname: response.json
+
+# Override any defaults here
+evaluator_config:
+  params: 
+    response_field: ${response_field_name}
+    metric_names: [BucketHeadP65/confusion_matrix, "f1", "recall", "precision"]
+    metric_kwargs:
+      BucketHeadP65/confusion_matrix:
+        labels: [0, 1]

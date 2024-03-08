@@ -1,0 +1,16 @@
+defaults:
+  - ../nli_model@params.model_config: nli
+  - ../template@params.prompt_formatter_config: nli_text_to_text
+  - _self_
+
+# Add these here so under params
+params:
+  prompt_formatter_config:
+    var_map:
+      text_1: text_1
+      text_2: text_2
+    index_field: ${index_field}
+  return_key: entailment
+  
+# Add name separately
+name: nli_unidirectional_component

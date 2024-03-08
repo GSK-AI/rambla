@@ -1,0 +1,11 @@
+# Add these here so under params
+params:
+  metric_name: bleu
+  predictions_field: text_1
+  references_field: text_2
+  column_name: response
+  metric_kwargs:
+    max_order: 4
+
+# Add name separately
+name: nlp_bleu_component

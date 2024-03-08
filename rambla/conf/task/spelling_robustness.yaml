@@ -1,0 +1,28 @@
+defaults:
+  - ../task@subtask.config: mcqabaseline
+  - ../prompt_mutator@mutator_config: character_level
+  - _self_
+
+class_key: PromptRobustness
+
+subtask:
+  name: MCQABaselineTask
+  config:
+    response_component_config:
+      cache_base_dir: ${save_dir}/eval_suite_cache_dir 
+      response_cache_fname: response.json
+      max_rate: 4
+      run_async: false
+      time_period: 60
+      backoff_decorator_config: "DEFAULT"
+      
+mutation_schedule:
+  - 1
+  - 3
+  - 10
+  - 20
+  - 50
+
+field_to_mutate: context
+
+dataset_config: ${task.subtask.config.dataset_config}

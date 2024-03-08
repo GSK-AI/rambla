@@ -1,0 +1,7 @@
+name: shortform
+params:
+  categories:
+    - "0"
+    - "1"
+  response_field: response
+  target_field: label

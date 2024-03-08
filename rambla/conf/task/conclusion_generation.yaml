@@ -1,0 +1,45 @@
+defaults:
+  - ../dataset@dataset_config: pubmed_qa_yesno
+  - ../template@longform_prompt_formatter_config: pqa_summarize_context
+  - ../model@scoring_model_config: openai_chat
+  - ../response_formatter@response_formatter_config: mcqa_response_formatter
+  - ../template@question_response_formatter_config: pqa_question_context_one_shot_unknown
+  - _self_
+
+class_key: MCQALongFormTask
+
+# General task params
+question_field: question
+target_field: final_decision
+# subsample_size: 350
+
+# Prompt formatters
+longform_prompt_formatter_config:
+  var_map:
+    context: context
+  index_field: ${index_field}
+
+question_response_formatter_config:
+  var_map:
+    question: question
+    response: summary
+  index_field: ${index_field}
+
+response_formatter_config:
+  response_field_name: scored_response
+  categories:
+    - "yes"
+    - "no"
+    - "unknown"
+  null_category: "null"
+
+evaluator_config:
+  response_field: scored_response
+  target_field: final_decision
+  categories: ["yes", "no", "unknown", "null"]
+  metric_names: [BucketHeadP65/confusion_matrix, "f1", "recall", "precision"]
+  compute_class_counts_from_confmat: true
+  classes_to_exclude: "null"  
+  metric_kwargs:
+    BucketHeadP65/confusion_matrix:
+      labels: [0, 1, 2, 3]

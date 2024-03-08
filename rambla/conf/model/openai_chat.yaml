@@ -1,0 +1,5 @@
+name: openai_chat
+params:
+  temperature: 0.0
+  engine: gpt-4-32k
+  async_calls: false

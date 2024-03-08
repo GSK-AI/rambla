@@ -1,0 +1,5 @@
+name: glue_mrpc
+params:
+  path: "glue"
+  subset: mrpc
+  split: train[:500]

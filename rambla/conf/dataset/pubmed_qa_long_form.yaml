@@ -1,0 +1,10 @@
+name: pubmed_qa_long_form
+params:
+  path: pubmed_qa
+  subset: pqa_labeled
+  split: train
+index_field: id
+question_field: question
+context_field: context
+answer_field: answer
+target_field: label

@@ -1,0 +1,29 @@
+defaults:
+  - ../dataset@dataset_config: pubmed_qa_yesno
+  - ../rephrase@rephrasing_module_config: negate_context
+  - ../template@prompt_formatter_config: pqa_question_context_one_shot
+  - ../response_formatter@response_formatter_config: negation_response_formatter
+  - _self_
+
+class_key: NegationTask
+
+# General params
+index_field: pubid
+# subsample_size: 350
+
+prompt_formatter_config:
+  var_map:
+    question: question
+    long_answer: summary
+  index_field: ${index_field}
+
+evaluator_config:
+  response_field: response
+  target_field: final_decision
+  categories: ["yes", "no", "null"]
+  metric_names: [BucketHeadP65/confusion_matrix, "f1", "recall", "precision"]
+  compute_class_counts_from_confmat: true
+  classes_to_exclude: "null"  
+  metric_kwargs:
+    BucketHeadP65/confusion_matrix:
+      labels: [0, 1, 2]

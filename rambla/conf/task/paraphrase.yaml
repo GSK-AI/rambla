@@ -1,0 +1,32 @@
+defaults:
+  - ../dataset@dataset_config: pubmed_qa_yesno
+  - ../rephrase@rephrasing_module_config: paraphrase_question
+  - ../template@prompt_formatter_config: pqa_yesno_with_context_useit_lean
+  - ../response_formatter@response_formatter_config: mcqa_response_formatter
+  - _self_
+
+class_key: ParaphraseTask
+
+prompt_formatter_config:
+  var_map:
+    question: question
+    context: context
+  index_field: ${index_field}
+
+# Override any defaults here
+response_formatter_config:
+  categories:
+    - "yes"
+    - "no"
+  null_category: "null"
+
+evaluator_config:
+  response_field: response
+  target_field: final_decision
+  categories: ["yes", "no", "null"]
+  metric_names: [BucketHeadP65/confusion_matrix, "f1", "recall", "precision"]
+  compute_class_counts_from_confmat: true
+  classes_to_exclude: "null"    
+  metric_kwargs:
+    BucketHeadP65/confusion_matrix:
+      labels: [0, 1, 2]

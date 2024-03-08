@@ -1,0 +1,23 @@
+defaults:
+  - ../nli_model@params.model_config: nli_bidirectional
+  - ../template@params.prompt_formatter_config: nli_text_to_text
+  - ../template@params.flipped_prompt_formatter_config: nli_text_to_text
+  - ../combination_strategies@params.combination_strategy_config: strict
+  - _self_
+
+# Add these here so under params
+params:
+  prompt_formatter_config:
+    var_map:
+      text_1: text_1
+      text_2: text_2
+    index_field: ${index_field}
+
+  flipped_prompt_formatter_config:
+    var_map:
+      text_1: text_2
+      text_2: text_1
+    index_field: ${index_field}
+
+# Add name separately
+name: nli_bidirectional_component

@@ -1,0 +1,18 @@
+defaults:
+  - ../dataset@dataset_config: sick
+  - ../evaluator@evaluator_config: continuous_evaluator_relatedness_score
+  - _self_
+
+class_key: TextToTextCatToCont
+
+# General params
+preprocessor_config:
+  label_field_name: relatedness_score
+
+# Override any defaults here
+evaluator_config:
+  response_field: ${response_field_name}
+  target_field: relatedness_score
+  params:
+    metric_names: ["mse", "mae", "r_squared", "stats_spearmanr"]
+

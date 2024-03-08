@@ -1,0 +1,5 @@
+response_field_name: label
+renaming_map:
+  "1": !!float 1
+  "0": !!float 0
+string_formatter_name: basic

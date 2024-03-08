@@ -1,0 +1,38 @@
+defaults:
+  - text_to_text_task: text_to_text_nli_bi_sick_val
+  - text_to_text_component: nli_bidirectional_component_strict
+  -  _self_
+
+save_dir: rambla_store
+cache_dir: ${save_dir}/eval_suite_cache_dir
+response_field_name: response
+index_field: index
+
+# Sets cache directory here to keep consistent across tasks
+# NOTE To use the ${} method with the root config (to avoid hardcoding) you need to assign below 
+# NOTE In the future we may want to change this so that response_field_name is not defined here 
+# but instead pulled from the text_to_text_component or introduce a base config that covers both
+# the component and the evaluator
+
+text_to_text_component:
+  params:
+    response_field_name: ${response_field_name}
+    response_component_config:
+      cache_base_dir: ${cache_dir}
+      response_cache_fname: component_response.json
+      max_rate: 4
+      run_async: false
+      time_period: 60
+      backoff_decorator_config: "DEFAULT"
+      skip_decorator_config:
+        exception:
+          - "openai.BadRequestError"
+          - "MaximumContextLengthExceededError"
+        null_response: -1
+      
+metrics_save_dir: ${save_dir}/metrics
+
+# Hydra runtime parameters
+hydra:
+  run:
+    dir: ${save_dir}/hydra_logs

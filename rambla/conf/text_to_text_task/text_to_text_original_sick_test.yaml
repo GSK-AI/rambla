@@ -1,0 +1,24 @@
+defaults:
+  - ../dataset@dataset_config: sick_test
+  - ../response_formatter@response_formatter_config: negation_response_formatter
+  - ../evaluator@evaluator_config: mcqa_evaluator
+  - _self_
+
+class_key: TextToText
+
+# Override any defaults here
+evaluator_config:
+  params: 
+    response_field: ${response_field_name}
+    categories: ["0", "1", "null"]
+    metric_names: [BucketHeadP65/confusion_matrix, "f1", "recall", "precision"]
+    metric_kwargs:
+      BucketHeadP65/confusion_matrix:
+        labels: [0, 1, 2]
+
+response_formatter_config:
+  response_field_name: ${response_field_name}
+  renaming_map:
+    "yes": "1"
+    "no": "0"
+    "null": "null"

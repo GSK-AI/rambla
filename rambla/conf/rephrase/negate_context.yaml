@@ -1,0 +1,20 @@
+defaults:
+  - ../model@llm_config: openai_chat
+  - ../template@prompt_formatter_config: pqa_negation_template
+
+field_rephrased: context
+
+prompt_formatter_config:
+  var_map:
+    question: question
+    context: context
+    final_decision: short_answer
+  index_field: ${index_field}
+
+response_component_config:
+  cache_base_dir: ${save_dir}/eval_suite_cache_dir 
+  response_cache_fname: response.json
+  max_rate: 4
+  run_async: false
+  time_period: 60
+  backoff_decorator_config: "DEFAULT"

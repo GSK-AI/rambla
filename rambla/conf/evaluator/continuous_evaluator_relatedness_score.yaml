@@ -1,0 +1,4 @@
+name: continuous
+params:
+  response_field: response
+  target_field: relatedness_score

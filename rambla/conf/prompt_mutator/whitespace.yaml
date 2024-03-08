@@ -1,0 +1,7 @@
+name: whitespace
+mutation_operator_configs:
+  - name: insert_character_between_words
+    params:
+      insert_character_opts: [' ', '\t', '\n', '\r', '\x0b', '\x0c']
+      seed: 123
+seed: 123
